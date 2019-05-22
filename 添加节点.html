@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+    <style>
+    	.highlight {
+			  color: white;
+			  background-color: black;
+			  padding: 10px;
+			  width: 250px;
+			  text-align: center;
+			}
+    </style>
+  </head>
+  <body>
+      <section>
+        <img src="img/dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+      </section>
+      <script>
+      	let sect=document.querySelector('section');
+      	//创建一个新的段落
+      	let para=document.createElement('p');
+      	para.textContent='I hope we can become better.';
+      	//在后面追加这个段落
+      	sect.appendChild(para);
+      	//创建一个文本节点
+      	let text=document.createTextNode('lalalalallaal');
+      	//获取内部链接的段落的引用，并把文本节点绑定到这个节点上
+      	let linkPara=document.querySelector('p');
+      	linkPara.appendChild(text);
+      	//把具有内部链接的段落移到section的底部
+      	sect.appendChild(linkPara);
+      	//删除一个仅基于自身引用的节点
+      	
+      	//HTMLElement.style属性修改css的样式，添加的时内联样式
+     		linkPara.parentNode.removeChild(linkPara);
+//   		para.style.color='white';
+//   		para.style.backgroundColor='black';
+//   		para.style.padding='10px';
+//   		para.style.width='250px';
+//   		para.style.textAlign='center';
+     		
+     		//HTML操作的常用方法 — Element.setAttribute()
+     		para.setAttribute('class','highlight');
+      </script>
+  </body>
+</html>
