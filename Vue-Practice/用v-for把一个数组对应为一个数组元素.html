@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用v-for把一个数组对应为i一个数组元素</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<!--用v-for指令根据一组数组的选项列表进行渲染
+		需要使用item in items形式的特殊语法，
+		items是源数据数组并且item是数组元素迭代的别名-->
+		<ul id="example-1">
+			<li v-for="item in items">
+				{{item.message}}
+			</li>
+		</ul>
+		<hr />
+		<!--
+			在v-for中，我们拥有对父作用于属性的完全访问权限
+		v-for属性还支持一个可选的第二个参数为当前项目的索引-->
+		<ul id="example-2">
+			<li v-for="(item,index) in items">
+				{{parentMessage}}-{{index}}-{{item.message}}
+			</li>
+		</ul>
+		<hr />
+		
+		<!--你也可以用v-for通过一个对象的属性来迭代-->
+		<ul id="v-for-object" class="demo">
+			<li v-for="value in object">
+				{{value}}
+			</li>
+		</ul>
+		
+		<script>
+			var example1=new Vue({
+				el:'#example-1',
+				data:{
+					items:[
+					{message:'Foo'},
+					{message:'Bar'}
+					]
+				}
+			})
+			
+			var example2=new Vue({
+				el:'#example-2',
+				data:{
+					parentMessage:'Parent',
+					items:[
+					{message:'Foo'},
+					{message:'Bar'}
+					]
+				}
+			})
+			
+			new Vue({
+				el:'#v-for-object',
+				data:{
+					object:{
+						title:'How to do lists in Vue',
+						author:'Jane Doe',
+						publishedAt:'2016-04-10'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

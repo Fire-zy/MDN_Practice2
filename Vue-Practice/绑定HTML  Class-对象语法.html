@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div class="static"
+			v-bind:class="{active:isActive,'texte-danger':hasError}"
+		></div>
+			
+		<script>
+			data:{
+				isActive:true;
+				hasError:false;
+			}
+		</script>
+		
+		<!--结果渲染为<div class="statuc active"></div>-->
+	</body>
+</html>
